@@ -1,0 +1,152 @@
+.book-img-title {
+    margin-bottom: 1.5rem;
+}
+
+.book-img {
+    margin-bottom: 20px;
+    padding-top: 15px;
+    border: 1px solid #ced4da;
+    text-align: center;
+    margin-right: 25px;
+    width: 300px;
+    border-radius: 10px;
+    animation: appear .7s ease 0s 1 normal forwards;
+}
+/* 
+.book-img:hover {
+    border-radius: 20px 0px 20px 0px;
+    transition-duration: 1s;
+} */
+
+.book-img img {
+    height: 300px;
+    max-width: 250px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.book-img-img {
+    position: relative;
+}
+
+.book-img textarea {
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: hidden;
+    width: 100%;
+}
+
+.book-img .book-img-area {
+    text-align: left;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.book-img .book-img-area h6 {
+    font-size: 1rem;
+    letter-spacing: -.5px;
+    font-weight: bold;
+}
+
+.book-img .book-edition i {
+    margin-right: 5px;
+    font-weight: normal;
+}
+
+.book-img .book-edition p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.book-img .book-edition {
+    margin-left: 15px;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.book-img .book-edition h6 {
+    font-size: 1rem;
+    letter-spacing: -.5px;
+    font-weight: bold;
+}
+
+.book-img-img img {
+    border-radius: 15px;
+}
+
+p {
+    margin: 0;
+}
+
+/* Book UPLOAD */
+
+.book-upload {
+    border: 2px dashed #ced4da;
+    position: relative;
+    min-height: 575px;
+    color: #ced4da;
+}
+
+.book-upload:hover {
+    border: 2px dashed #eb1121;
+    transition: .3s ease-out;
+    color: #eb1121;
+}
+
+.book-upload input[type="file"] {
+    display: none;
+}
+
+.book-upload .book-upload-label {
+    position: absolute;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.book-upload .book-upload-label .text-upload i {
+    font-size: 5rem;
+}
+
+.check {
+    color: rgb(82, 205, 37);
+}
+
+.cancel {
+    color: rgb(255, 0, 0);
+}
+/* Book image disappear */
+
+.disappear {
+    animation: disappear .5s ease 0s 1 normal forwards;
+}
+
+@keyframes disappear {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0.6);
+	}
+}
+
+@keyframes appear {
+	0% {
+		transform: scale(0);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+

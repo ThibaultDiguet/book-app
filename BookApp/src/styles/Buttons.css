@@ -1,0 +1,9 @@
+small {
+    cursor: pointer;
+
+}
+
+small:hover {
+    text-decoration: underline;
+}
+
