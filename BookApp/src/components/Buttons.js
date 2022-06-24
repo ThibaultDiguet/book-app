@@ -5,6 +5,7 @@ import DeleteBook from "./DeleteBook.js";
 import { useState} from 'react';
 import axios from 'axios';
 import '../styles/Buttons.css';
+import axiosConfig from '../axiosConfig.js';
 import { ToastContainer, toast } from 'react-toastify';
 
 function Button({ bookstate, setBookState }) {
@@ -98,7 +99,7 @@ function Button({ bookstate, setBookState }) {
         if (e.target.value && e.target.value.length > 0 && IDBook && IDBook.target.value.length > 0) {
             let object = '{"' + e.target.name + '":"' + e.target.value + '"}';
             let json = JSON.parse(object);
-            axios.patch('http://localhost:8080/api/books/' + IDBook.target.value, json, {
+            axiosConfig.patch('/api/books/' + IDBook.target.value, json, {
                 headers: {
                     'Content-Type': 'application/merge-patch+json',
                 }
@@ -142,7 +143,7 @@ function Button({ bookstate, setBookState }) {
         }
         console.log(data)
         // if (bookstate === 'add') {
-        axios.post('http://localhost:8080/api/books', JSON.stringify(data), {
+            axiosConfig.post('http://localhost:8080/api/books', JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json',
             }})

@@ -4,6 +4,7 @@ import moment from 'moment';
 import '../styles/EditBook.css'
 import Buttons from '../components/Buttons.js';
 import { ToastContainer, toast } from 'react-toastify';
+import axiosConfig from '../axiosConfig.js';
 
 function EditBook({ bookstate, setBookState, IDBook, setAddBook, addBook, images, setImages, selectedImage, setSelectedImage }) {
     const imageChange = (e) => {
@@ -29,7 +30,7 @@ function EditBook({ bookstate, setBookState, IDBook, setAddBook, addBook, images
     }, [bookstate, IDBook])
     function listBooks() {
         setImages('');
-        axios.get(`http://localhost:8080/api/books/` + IDBook.target.value)
+        axiosConfig.get(`http://localhost:8080/api/books/` + IDBook.target.value)
             .then(res => {
                 setAddBook(prevState => ({
                     ...prevState,
@@ -59,7 +60,7 @@ function EditBook({ bookstate, setBookState, IDBook, setAddBook, addBook, images
     }
     function removeImage(id) {
         document.getElementById(id).classList.add('disappear')
-        axios.delete('http://localhost:8080/api/images/' + id, {
+        axiosConfig.delete('http://localhost:8080/api/images/' + id, {
             headers: {
                 'Content-Type': 'application/json',
             }
@@ -93,7 +94,7 @@ function EditBook({ bookstate, setBookState, IDBook, setAddBook, addBook, images
 
     function updateName(id) {
         let json = JSON.parse('{"name" : "' + document.getElementById(id + '-name').value + '"}');
-        axios.patch('http://localhost:8080/api/images/' + id, json, {
+        axiosConfig.patch('http://localhost:8080/api/images/' + id, json, {
             headers: {
                 'Content-Type': 'application/merge-patch+json',
             }
@@ -165,7 +166,7 @@ function EditBook({ bookstate, setBookState, IDBook, setAddBook, addBook, images
                         name: name,
                         data: data.substring(data.indexOf(",") + 1)
                     }
-                    axios.post('http://localhost:8080/api/images/' + IDBook.target.value, JSON.stringify(jsonAddImage), {
+                    axiosConfig.post('http://localhost:8080/api/images/' + IDBook.target.value, JSON.stringify(jsonAddImage), {
                         headers: {
                             'Content-Type': 'application/json',
                         }

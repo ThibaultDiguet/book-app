@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import axios from 'axios';
+import axiosConfig from '../axiosConfig.js';
 import { ToastContainer, toast } from 'react-toastify';
 
 function DeleteBook({ bookstate, IDBook, setIDBook }) {
     function deleteABook() {
         if (IDBook.target.value) {
-            axios.delete('http://localhost:8080/api/books/' + IDBook.target.value, {
+            axiosConfig.delete('http://localhost:8080/api/books/' + IDBook.target.value, {
                 headers: {
                     'Content-Type': 'application/json',
                 }

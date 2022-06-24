@@ -3,6 +3,7 @@ import moment from 'moment';
 import fr from 'moment/locale/fr'
 import '../styles/ShowBooks.css';
 import { useState, useEffect } from 'react';
+import axiosConfig from '../axiosConfig.js';
 
 function ShowBooks({ bookstate, IDBook }) {
     const [books, setBooks] = useState('');
@@ -20,7 +21,7 @@ function ShowBooks({ bookstate, IDBook }) {
     }, [bookstate, IDBook])
 
     function ShowAllBooks() {
-        axios.get(`http://localhost:8080/api/books/`)
+        axiosConfig.get(`http://localhost:8080/api/books/`)
             .then(res => {
                 setBook('')
                 setBooks(res.data);
@@ -32,7 +33,7 @@ function ShowBooks({ bookstate, IDBook }) {
 
     function ShowABook() {
         if (IDBook.target.value) {
-            axios.get(`http://localhost:8080/api/books/` + IDBook.target.value)
+            axiosConfig.get(`http://localhost:8080/api/books/` + IDBook.target.value)
                 .then(res => {
                     //setBooks('')
                     setBook(res.data)
